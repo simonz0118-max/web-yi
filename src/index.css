@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "EB Garamond", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "EB Garamond", serif;
+
+  --color-brand-bg: #F0EEEA; /* Slightly cooler grey-beige */
+  --color-brand-ink: #111111;
+  --color-brand-muted: #555555;
+  --color-brand-accent: #7A8C86; /* Sage green accent from the image */
+  --color-brand-paper: #F5F2ED;
+  --color-brand-stone: #D1CEC5;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-ink font-sans antialiased selection:bg-brand-ink selection:text-brand-bg;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tighter;
+  }
+}
+
+@layer utilities {
+  .text-huge {
+    font-size: clamp(3rem, 12vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+  
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+
+  .line-height-tight {
+    line-height: 0.85;
+  }
+  
+  .mask-oval {
+    clip-path: ellipse(50% 50% at 50% 50%);
+  }
+
+  .bg-pattern {
+    background-image: radial-gradient(var(--color-brand-ink) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+  }
+
+  .border-technical {
+    @apply border border-brand-ink/10;
+  }
+}
+
+/* Technical Label Style */
+.tech-label {
+  @apply font-mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 border border-brand-ink/10 rounded-sm inline-block;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
